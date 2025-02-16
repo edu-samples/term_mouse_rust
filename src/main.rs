@@ -5,7 +5,7 @@ use crossterm::{
     terminal,
 };
 
-fn main() -> crossterm::Result<()> {
+fn main() -> std::io::Result<()> {
     // Enable raw mode so we can capture events directly.
     terminal::enable_raw_mode()?;
 
