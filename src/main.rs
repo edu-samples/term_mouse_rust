@@ -25,20 +25,58 @@ fn main() -> std::io::Result<()> {
                             println!("Key event: {:?}", key_event);
                         }
                     }
-                    MouseEventKind::ScrollLeft => {
-                        println!(
-                            "Scroll left at ({}, {})",
-                            mouse_event.column, mouse_event.row
-                        );
-                    }
-                    MouseEventKind::ScrollRight => {
-                        println!(
-                            "Scroll right at ({}, {})",
-                            mouse_event.column, mouse_event.row
-                        );
-                    }
                 }
                 Event::Mouse(mouse_event) => {
+                    match mouse_event.kind {
+                        MouseEventKind::Down(btn) => {
+                            println!(
+                                "Mouse down at ({}, {}), button: {:?}",
+                                mouse_event.column, mouse_event.row, btn
+                            );
+                        }
+                        MouseEventKind::Up(btn) => {
+                            println!(
+                                "Mouse up at ({}, {}), button: {:?}",
+                                mouse_event.column, mouse_event.row, btn
+                            );
+                        }
+                        MouseEventKind::Drag(btn) => {
+                            println!(
+                                "Mouse drag at ({}, {}), button: {:?}",
+                                mouse_event.column, mouse_event.row, btn
+                            );
+                        }
+                        MouseEventKind::Moved => {
+                            println!(
+                                "Mouse moved to ({}, {})",
+                                mouse_event.column, mouse_event.row
+                            );
+                        }
+                        MouseEventKind::ScrollDown => {
+                            println!(
+                                "Scroll down at ({}, {})",
+                                mouse_event.column, mouse_event.row
+                            );
+                        }
+                        MouseEventKind::ScrollUp => {
+                            println!(
+                                "Scroll up at ({}, {})",
+                                mouse_event.column, mouse_event.row
+                            );
+                        }
+                        MouseEventKind::ScrollLeft => {
+                            println!(
+                                "Scroll left at ({}, {})",
+                                mouse_event.column, mouse_event.row
+                            );
+                        }
+                        MouseEventKind::ScrollRight => {
+                            println!(
+                                "Scroll right at ({}, {})",
+                                mouse_event.column, mouse_event.row
+                            );
+                        }
+                    }
                     match mouse_event.kind {
                         MouseEventKind::Down(btn) => {
                             println!(
