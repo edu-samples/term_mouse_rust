@@ -22,7 +22,7 @@ fn main() -> std::io::Result<()> {
                     match key_event.code {
                         KeyCode::Char('q') => break,
                         _ => {
-                            println!("Key event: {:?}", key_event);
+                            println!("Key event: {:?}\n", key_event);
                         }
                     }
                 }
@@ -33,6 +33,7 @@ fn main() -> std::io::Result<()> {
                                 "Mouse down at ({}, {}), button: {:?}",
                                 mouse_event.column, mouse_event.row, btn
                             );
+                            println!();
                         }
                         MouseEventKind::Up(btn) => {
                             println!(
