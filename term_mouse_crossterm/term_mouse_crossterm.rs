@@ -25,6 +25,7 @@ fn main() -> std::io::Result<()> {
                         KeyCode::Char('q') => break,
                         KeyCode::Char('c') if key_event.modifiers.contains(event::KeyModifiers::CONTROL) => break,
                         KeyCode::Char('d') if key_event.modifiers.contains(event::KeyModifiers::CONTROL) => break,
+                        _ => {
                             println!("\rKey event: {:?}", key_event);
                             println!();
                         }
