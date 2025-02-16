@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+# cargo-example-select - Script for selecting Rust examples comfortably
+# run with --loop --clear for fun, e.g. in ratatui repo:
+# git clone https://github.com/ratatui/ratatui.git && cd ratatui && cargo-example-select --loop --clear
+
+# Published: <https://gist.github.com/gwpl/f78af717785959ac81ec1fc21fb6056f>
+
+# Retrieve example names via cargo metadata and jq.
+examples=$(cargo metadata --no-deps --format-version 1 | jq -r \
+  '.packages[].targets[] | select(.kind[] | contains("example")) | .name')
+
+# Initialize flags
+loop_flag=false
+clear_flag=false
+
+# Iterate over arguments to set flags
+for arg in "$@"; do
+  case $arg in
+    --loop|-l|loop)
+      loop_flag=true
+      ;;
+    --clear|-c|clear)
+      clear_flag=true
+      ;;
+  esac
+done
+
+counter=0
+while [ "$loop_flag" == true -o $counter == 0 ]; do
+  # Clear screen if clear_flag is true
+  if [ "$clear_flag" == true ]; then
+    clear
+    reset
+  fi
+
+  # Use a bash select menu to choose one.
+  select example in $examples; do
+    # Run the selected example.
+    cargo run --example "$example"
+    break
+  done
+  counter=$((counter + 1))
+done
