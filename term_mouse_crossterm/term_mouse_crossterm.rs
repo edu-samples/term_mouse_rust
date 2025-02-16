@@ -23,7 +23,8 @@ fn main() -> std::io::Result<()> {
                     // If 'q' is pressed, exit.
                     match key_event.code {
                         KeyCode::Char('q') => break,
-                        _ => {
+                        KeyCode::Char('c') if key_event.modifiers.contains(event::KeyModifiers::CONTROL) => break,
+                        KeyCode::Char('d') if key_event.modifiers.contains(event::KeyModifiers::CONTROL) => break,
                             println!("\rKey event: {:?}", key_event);
                             println!();
                         }
