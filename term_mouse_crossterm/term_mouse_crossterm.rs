@@ -12,6 +12,8 @@ fn main() -> std::io::Result<()> {
     // Enable mouse capture.
     execute!(io::stdout(), EnableMouseCapture)?;
 
+    println!("Please start moving, clicking, dragging with mouse in terminal. To exit press q.");
+
     // Main event loop.
     loop {
         // Poll for an event every 500ms
