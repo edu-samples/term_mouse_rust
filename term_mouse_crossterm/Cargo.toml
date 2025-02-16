@@ -4,5 +4,9 @@ name = "term_mouse_rust"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "term_mouse_rust"
+path = "term_mouse_crossterm.rs"
+
 [dependencies]
 crossterm = "0.27"
