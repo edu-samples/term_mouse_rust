@@ -112,13 +112,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust_terminal_mouse"
-version = "0.1.0"
-dependencies = [
- "crossterm",
-]
-
-[[package]]
 name = "scopeguard"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -159,6 +152,13 @@ name = "smallvec"
 version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7fcf8323ef1faaee30a44a340193b1ac6814fd9b7b4e88e9d4519a3e4abe1cfd"
+
+[[package]]
+name = "term_mouse_crossterm"
+version = "0.1.0"
+dependencies = [
+ "crossterm",
+]
 
 [[package]]
 name = "wasi"
