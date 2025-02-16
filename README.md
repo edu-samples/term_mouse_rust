@@ -12,6 +12,14 @@ cargo run --example [example_name]
 
 Replace `[example_name]` with the name of the example you wish to run.
 
+## Running Examples with Helper Script
+
+You can also run the examples using the helper script provided in this repository. This script allows you to select and run examples interactively. Use the following command:
+
+```bash
+./cargo-example-select --loop --clear
+```
+
 ## Examples
 
 * `examples/term_mouse_crossterm.rs`: Demonstrates capturing mouse events in the terminal.
