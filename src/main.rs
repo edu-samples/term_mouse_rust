@@ -25,6 +25,18 @@ fn main() -> std::io::Result<()> {
                             println!("Key event: {:?}", key_event);
                         }
                     }
+                    MouseEventKind::ScrollLeft => {
+                        println!(
+                            "Scroll left at ({}, {})",
+                            mouse_event.column, mouse_event.row
+                        );
+                    }
+                    MouseEventKind::ScrollRight => {
+                        println!(
+                            "Scroll right at ({}, {})",
+                            mouse_event.column, mouse_event.row
+                        );
+                    }
                 }
                 Event::Mouse(mouse_event) => {
                     match mouse_event.kind {
